@@ -40,7 +40,7 @@ function testGitHub(res){
   },github);      // views github as a parameter for the function
 
 
-    var token = "fb785abf3bb07489a19fffa40e8c54c38a5761e7";
+    var token = "";
 
     github.authenticate({
         type: "oauth",
