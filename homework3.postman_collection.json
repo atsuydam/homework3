@@ -1,0 +1,67 @@
+{
+	"variables": [],
+	"info": {
+		"name": "homework3",
+		"_postman_id": "7fc9ebc3-dbeb-c4b2-e779-bba105a9cb61",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);   ",
+							"postman.setEnvironmentVariable(\"Token\", jsonData.access_token);  "
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "Ku5skMttZWEZTL7PASqgx5TSjq31INeZ",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "uc2pz3sRLhl9R3Nq",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "getting token"
+			},
+			"response": []
+		},
+		{
+			"name": "atsuydam",
+			"request": {
+				"url": "atsuydam",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
