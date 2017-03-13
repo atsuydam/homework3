@@ -1,0 +1,6 @@
+module.exports = {
+	"GitVault": {
+		"key": "key1",
+		"data": "1f1553d9c614e9eb6cf1b39d58e2112947e00971eea914a6659d9f4ba439f89f22a450443656b48a882d7b23813a1c2939c5b287320e713ea36c120fc497994a"
+	}
+};

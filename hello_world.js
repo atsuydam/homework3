@@ -3,62 +3,44 @@
 var util = require('util');
 
 module.exports = {
-  hello: hello,
-  testGitHub: testGitHub
+  GitHubRepo: GitHubRepo
 };
 
-function hello(req, res) {
-  // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-  var name = req.swagger.params.name.value || 'stranger';
-  var hello = util.format('Hello, %s!', name);
-
-  // this sends back a JSON response which is a single string
-  res.json(hello);
-}
-
-function testGitHub(res){
+function GitHubRepo(res){
    var GitHubApi = require("github");
    var github = new GitHubApi({
-     host: "api.github.com",
-     version: "3.0.0",
-     header: {
-       "User-Agent": "atsuydam"
-     }
+     version: "9.2.0",
     });
 
-   var vault = require ('avault').createVault('/hw3');
+  //  var vault = require('avault').createVault(__dirname);
+  //
+  //  vault.get("GitVault", function (profileString) {
+  //  var profile = JSON.parse(profileString);
+  //  console.log(profile);
+  //
+  //  github.authenticate({
+  //      type: "oauth",
+  //      token: AUTH_TOKEN    // auth token is not defined
+  //  });
+  // },github);
 
-   vault.get("GitVault", function (profileString) {
-   var profile = JSON.parse(profileString);
-   console.log(profile);
 
-   github.authenticate({
-       type: "oauth",
-       token: profile    // auth token is not defined
-   });
-
-  },github);      // views github as a parameter for the function
-
-
-    var token = "";
+    var token = "c325860ebcb5c39e49db6a59466a88d4ed02b760";
 
     github.authenticate({
         type: "oauth",
         token: token
     });
 
-   var output = "";
+    var output ="";
+   github.users.get({user: "atsuydam"} , function(err, data) {
+       github.repos.getAll({}, function(err, data2) {
+            console.log("Houston do we have a problem?", err);
+            console.log("This one is working?", data);
+            output = JSON.stringify(data2);
+           //res.json(data2); these type of functions are working, what library am I missing?
+      });
 
-   github.user.get({ user: "atsuydam"} , function(err, data) {
-     console.log("Got an error?", err);
-     console.log("Got a response?", res);
-     output += data;
-
-     github.repos.getAll({}, function(err, data2) {
-       console.log("Got an error?", err);
-       console.log("Got a response?", res);
-       output += data2;
-     });
   });
    return output;
 }
