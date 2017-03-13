@@ -25,7 +25,7 @@ function GitHubRepo(res){
   // },github);
 
 
-    var token = "c325860ebcb5c39e49db6a59466a88d4ed02b760";
+    var token = "";
 
     github.authenticate({
         type: "oauth",
