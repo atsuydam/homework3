@@ -31,16 +31,29 @@ function GitHubRepo(res){
         type: "oauth",
         token: token
     });
-
+    var async = require('async');
     var output ="";
-   github.users.get({user: "atsuydam"} , function(err, data) {
-       github.repos.getAll({}, function(err, data2) {
-            console.log("Houston do we have a problem?", err);
-            console.log("This one is working?", data);
-            output = JSON.stringify(data2);
-           //res.json(data2); these type of functions are working, what library am I missing?
-      });
 
-  });
+    function putItStraight(callback) {
+        github.users.get({user: "atsuydam"}, function (err, data) {
+            github.repos.getAll({}, function (err, data2) {
+                console.log("Houston do we have a problem?", err);
+                console.log("This one is working?", data);
+                if (err) return callback(err);
+                callback(null, data2);
+                //data.json(output); //these type of functions are working, what library am I missing?
+            });
+            console.log("and here we have ", output);
+            callback(null, output);
+        });
+    }
+
+    putItStraight( function(err, data2){
+        console.log(data2);
+        output += data2;
+    });
+    console.log("I don't think we're synced yet", output);
+
+
    return output;
 }
