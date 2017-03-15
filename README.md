@@ -39,3 +39,6 @@ Basic Authorization header, etc.).<br>
 – Give one reason (there are many) OAuth tokens should not be granted in the main flow,
 assuming the user has sent in the correct credentials.<br>
 OAuths tokens should not be granted in the main flow because you want to ensure the user has the authorization access the data before sending any of it along. With asynchonous calls it can either hold up all data because the Oauth has not finished with the authorization or poetentially give the user information to which they shouldn't have access. 
+<br><br>
+<b> Extra credit </b>
+Despite apigee oauth errors I did successfully use a vault to store the github token!
