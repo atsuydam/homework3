@@ -1,0 +1,417 @@
+{
+	"variables": [],
+	"info": {
+		"name": "homework3",
+		"_postman_id": "7fc9ebc3-dbeb-c4b2-e779-bba105a9cb61",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);   ",
+							"postman.setEnvironmentVariable(\"Token\", jsonData.access_token);  ",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"access_token\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "Ku5skMttZWEZTL7PASqgx5TSjq31INeZ",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "uc2pz3sRLhl9R3Nq",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "getting token"
+			},
+			"response": [
+				{
+					"id": "6bab237f-5bf4-4b01-8e40-6eecf50ecee2",
+					"name": "return",
+					"originalRequest": {
+						"url": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "Ku5skMttZWEZTL7PASqgx5TSjq31INeZ",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "uc2pz3sRLhl9R3Nq",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "528",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2017 23:39:35 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 61,
+					"body": "{\n  \"refresh_token_expires_in\" : \"0\",\n  \"api_product_list\" : \"[helloworld]\",\n  \"api_product_list_json\" : [ \"helloworld\" ],\n  \"organization_name\" : \"atsuydam\",\n  \"developer.email\" : \"helloworld@apigee.com\",\n  \"token_type\" : \"BearerToken\",\n  \"issued_at\" : \"1489361975984\",\n  \"client_id\" : \"Ku5skMttZWEZTL7PASqgx5TSjq31INeZ\",\n  \"access_token\" : \"6nxAKj1RE5O4Jz3pg036nIrhwGhe\",\n  \"application_name\" : \"afb56443-1d08-46e0-b6dd-15053b6f999d\",\n  \"scope\" : \"\",\n  \"expires_in\" : \"3599\",\n  \"refresh_count\" : \"0\",\n  \"status\" : \"approved\"\n}"
+				},
+				{
+					"id": "965ad1bd-c12f-4d6c-ab10-89b87136d48e",
+					"name": "successful token",
+					"originalRequest": {
+						"url": "https://atsuydam-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "Ku5skMttZWEZTL7PASqgx5TSjq31INeZ",
+									"type": "text",
+									"enabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "uc2pz3sRLhl9R3Nq",
+									"type": "text",
+									"enabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "528",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Mar 2017 17:48:35 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 209,
+					"body": "{\n  \"refresh_token_expires_in\" : \"0\",\n  \"api_product_list\" : \"[helloworld]\",\n  \"api_product_list_json\" : [ \"helloworld\" ],\n  \"organization_name\" : \"atsuydam\",\n  \"developer.email\" : \"helloworld@apigee.com\",\n  \"token_type\" : \"BearerToken\",\n  \"issued_at\" : \"1489600115073\",\n  \"client_id\" : \"Ku5skMttZWEZTL7PASqgx5TSjq31INeZ\",\n  \"access_token\" : \"4YQvXl5QW7XYCrCNIGYlcDxkusRY\",\n  \"application_name\" : \"afb56443-1d08-46e0-b6dd-15053b6f999d\",\n  \"scope\" : \"\",\n  \"expires_in\" : \"3599\",\n  \"refresh_count\" : \"0\",\n  \"status\" : \"approved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "https://atsuydam-test.apigee.net/hw3/getRelationships",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk3/oauth",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "fa63c2dc-f113-41cc-8cb8-597f1d66b22a",
+					"name": "timed out",
+					"originalRequest": {
+						"url": "https://atsuydam-test.apigee.net/hw3/getRelationships",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"enabled": true,
+								"disabled": false
+							}
+						],
+						"body": {}
+					},
+					"status": "Gateway Time-out",
+					"code": 504,
+					"_postman_previewlanguage": "html",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "344",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 12 Mar 2017 23:43:29 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "\"586e8258-158\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 228070,
+					"body": "<!DOCTYPE html>\n<html>\n<head>\n<title>Error</title>\n<style>\n    body {\n        width: 35em;\n        margin: 0 auto;\n        font-family: Tahoma, Verdana, Arial, sans-serif;\n    }\n</style>\n</head>\n<body>\n<h1>An error occurred.</h1>\n<p>Sorry, the page you are looking for is currently unavailable.<br/>\nPlease try again later.</p>\n</body>\n</html>\n"
+				},
+				{
+					"id": "41346074-53b1-438e-bf0b-c584c45b0223",
+					"name": "successful response",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk3/oauth",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"enabled": true,
+								"disabled": false
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6568",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Mar 2017 17:57:53 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19a8-LXWaPbAXMTpGHx3wR0/joAY0bo8\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 1233,
+					"body": "{\"data\":[{\"name\":\".gitattributes\",\"path\":\".gitattributes\",\"sha\":\"bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"size\":378,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitattributes?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/.gitattributes\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/.gitattributes\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitattributes?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/.gitattributes\"}},{\"name\":\".gitignore\",\"path\":\".gitignore\",\"sha\":\"cd2946ad76b4402e5b3cab9243a9281aad228670\",\"size\":649,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitignore?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/.gitignore\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/cd2946ad76b4402e5b3cab9243a9281aad228670\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/.gitignore\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitignore?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/cd2946ad76b4402e5b3cab9243a9281aad228670\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/.gitignore\"}},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"3a14ed64500524badd767e03c6be8b4a7358aa78\",\"size\":2566,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/README.md?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/README.md\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/3a14ed64500524badd767e03c6be8b4a7358aa78\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/README.md\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/README.md?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/3a14ed64500524badd767e03c6be8b4a7358aa78\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/README.md\"}},{\"name\":\"hello_world.js\",\"path\":\"hello_world.js\",\"sha\":\"37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"size\":1505,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/hello_world.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/hello_world.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/hello_world.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/hello_world.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/hello_world.js\"}},{\"name\":\"homework3.postman_collection.json\",\"path\":\"homework3.postman_collection.json\",\"sha\":\"c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"size\":6746,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/homework3.postman_collection.json?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/homework3.postman_collection.json\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/homework3.postman_collection.json\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/homework3.postman_collection.json?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/homework3.postman_collection.json\"}},{\"name\":\"keys.js\",\"path\":\"keys.js\",\"sha\":\"688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"size\":144,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/keys.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/keys.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/keys.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/keys.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/keys.js\"}},{\"name\":\"store.js\",\"path\":\"store.js\",\"sha\":\"b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"size\":197,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/store.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/store.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/store.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/store.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/store.js\"}},{\"name\":\"swagger.yaml\",\"path\":\"swagger.yaml\",\"sha\":\"375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"size\":1141,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/swagger.yaml?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/swagger.yaml\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/swagger.yaml\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/swagger.yaml?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/swagger.yaml\"}}],\"meta\":{\"x-ratelimit-limit\":\"5000\",\"x-ratelimit-remaining\":\"4998\",\"x-ratelimit-reset\":\"1489604182\",\"x-oauth-scopes\":\"public_repo\",\"x-github-request-id\":\"863E:0711:B6D8E51:DB8D4FF:58C980A1\",\"x-github-media-type\":\"github.v3; format=json\",\"last-modified\":\"Sun, 12 Mar 2017 02:20:26 GMT\",\"etag\":\"\\\"3a09c383e2fbdfdc48fd8a19d83f3ebd\\\"\",\"status\":\"200 OK\"}}"
+				},
+				{
+					"id": "1af5082d-666f-4106-a2e4-a8e336436c47",
+					"name": "successful response",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk3/oauth",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"enabled": true,
+								"disabled": false
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6568",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 Mar 2017 18:24:21 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19a8-5Z3FC+3y/u3bpHXGrkWazKOzyF0\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 343,
+					"body": "{\"data\":[{\"name\":\".gitattributes\",\"path\":\".gitattributes\",\"sha\":\"bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"size\":378,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitattributes?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/.gitattributes\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/.gitattributes\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitattributes?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/bdb0cabc87cf50106df6e15097dff816c8c3eb34\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/.gitattributes\"}},{\"name\":\".gitignore\",\"path\":\".gitignore\",\"sha\":\"cd2946ad76b4402e5b3cab9243a9281aad228670\",\"size\":649,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitignore?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/.gitignore\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/cd2946ad76b4402e5b3cab9243a9281aad228670\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/.gitignore\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/.gitignore?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/cd2946ad76b4402e5b3cab9243a9281aad228670\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/.gitignore\"}},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"3a14ed64500524badd767e03c6be8b4a7358aa78\",\"size\":2566,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/README.md?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/README.md\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/3a14ed64500524badd767e03c6be8b4a7358aa78\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/README.md\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/README.md?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/3a14ed64500524badd767e03c6be8b4a7358aa78\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/README.md\"}},{\"name\":\"hello_world.js\",\"path\":\"hello_world.js\",\"sha\":\"37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"size\":1505,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/hello_world.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/hello_world.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/hello_world.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/hello_world.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/37b2d6a038939ef34e770f307a67b4b9607e3ff0\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/hello_world.js\"}},{\"name\":\"homework3.postman_collection.json\",\"path\":\"homework3.postman_collection.json\",\"sha\":\"c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"size\":6746,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/homework3.postman_collection.json?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/homework3.postman_collection.json\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/homework3.postman_collection.json\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/homework3.postman_collection.json?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/c1ce44ba9620bf216daa26852dbeabfe031e0a08\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/homework3.postman_collection.json\"}},{\"name\":\"keys.js\",\"path\":\"keys.js\",\"sha\":\"688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"size\":144,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/keys.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/keys.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/keys.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/keys.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/688bd4f3cc7c29d952aa5acb2783dc1045b56360\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/keys.js\"}},{\"name\":\"store.js\",\"path\":\"store.js\",\"sha\":\"b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"size\":197,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/store.js?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/store.js\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/store.js\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/store.js?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/b06e4e85107f258bde9a3d6073b7f7dda334ee59\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/store.js\"}},{\"name\":\"swagger.yaml\",\"path\":\"swagger.yaml\",\"sha\":\"375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"size\":1141,\"url\":\"https://api.github.com/repos/atsuydam/homework3/contents/swagger.yaml?ref=master\",\"html_url\":\"https://github.com/atsuydam/homework3/blob/master/swagger.yaml\",\"git_url\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"download_url\":\"https://raw.githubusercontent.com/atsuydam/homework3/master/swagger.yaml\",\"type\":\"file\",\"_links\":{\"self\":\"https://api.github.com/repos/atsuydam/homework3/contents/swagger.yaml?ref=master\",\"git\":\"https://api.github.com/repos/atsuydam/homework3/git/blobs/375fff08a84a80d3d09a36ae7ef0ba8fbc605598\",\"html\":\"https://github.com/atsuydam/homework3/blob/master/swagger.yaml\"}}],\"meta\":{\"x-ratelimit-limit\":\"5000\",\"x-ratelimit-remaining\":\"4985\",\"x-ratelimit-reset\":\"1489604182\",\"x-oauth-scopes\":\"public_repo\",\"x-github-request-id\":\"A4EC:070F:46872E3:5430A55:58C986D5\",\"x-github-media-type\":\"github.v3; format=json\",\"last-modified\":\"Sun, 12 Mar 2017 02:20:26 GMT\",\"etag\":\"\\\"3a09c383e2fbdfdc48fd8a19d83f3ebd\\\"\",\"status\":\"200 OK\"}}"
+				}
+			]
+		}
+	]
+}
